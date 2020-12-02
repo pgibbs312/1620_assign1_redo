@@ -1,0 +1,129 @@
+.container {
+    --light_blue: rgb(3, 244, 252);
+    --dark_blue: rgb(18, 7, 102);
+    --dark_purp: rgb(46, 3, 64);
+    --pale_blue: rgb(148, 184, 255);
+
+    background-color: var(--light_blue);
+    color: white;
+    font-family: sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+.hide_notes {
+    display: none;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 2fr 6fr 1fr;
+    height: 100vh;
+    grid-template-areas: "header"
+                         "sidebar"
+                         "content"
+                         "footer";
+}
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: header;
+    background-color: var(--dark_blue);
+    border-bottom: 2px solid var(--dark_purp);
+    margin-bottom: 5px;
+}
+
+.sidebar {
+    background-color: var(--dark_blue);
+    grid-area: sidebar;
+    margin: 4px;
+    border-radius: 10px;
+    overflow: auto;
+}
+
+.sidebar li {
+    display: inline;
+    padding: 0px;
+}
+
+.sidebar > h2 {
+    margin-left: 10px;
+}
+
+.main {
+    grid-area: content;
+    background-color: grey;
+    margin: 4px;
+    border-radius: 10px;
+}
+
+.topBB {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.text_box {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    border-radius: 10px;
+}
+
+.main-text {
+    width: 85%;
+    height:50%;
+    background-color: black;
+    border: 1px solid grey;
+    color: white;
+    font-family: sans-serif;
+    border-radius: 10px;
+}
+
+.bottom_buttons {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    margin-top: 20px;
+}
+
+.button {
+    color: white;
+    background-color: black;
+    font-size: 10px;
+    font-family: sans-serif;
+    padding: 10px;
+    border-radius: 3px;
+    border: 0;
+    margin: 10px;
+}
+
+.button:hover {
+    cursor: pointer;
+    background-color: var(--dark_blue);
+    color: black;
+}
+
+.footer {
+    align-items: center;
+    grid-area: footer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--dark_blue);
+    border-top: 2px solid var(--dark_purp);
+    margin-top: 5px;
+}
+
+.footer * {
+    margin: 1px;
+}
+
+.noteList .button {
+    max-width: 10ch;
+    word-wrap: break-word;
+}
