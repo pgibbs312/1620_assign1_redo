@@ -1,3 +1,9 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+
+
 .container {
     --light_blue: #86FAF2;
     --dark_blue: rgb(18, 7, 102);
@@ -6,6 +12,8 @@
     --dark_teal: #00A6D7;
     --blue: #0058B3;
     --teal: #30E7ED;
+    --main_dark: #455259;
+    --army: #4B5320;
 
     /*-----Dark Mode Colors----- */
 
@@ -43,7 +51,7 @@
     grid-area: header;
     background-color: var(--blue);
     border-radius: 10px;
-    border: 2px solid var(--teal);
+    border-bottom: 2px solid var(--teal);
     margin-bottom: 1px;
 }
 
@@ -191,21 +199,21 @@
 
 .dark-button {
     background-color: var(--light_grey);
-    color: #455259;
+    color: var(--main_dark);
 }
 
+
 .dark_side {
-    background-color: var(--grey_blue);
+    background-color: var(--greenish_blue);
 }
 
 .dark_text {
-    background-color: var(--greenish_blue);
     color:black;
 }
 
 .dark_header {
     background-color: var(--dark_greyBlue);
-    color: #455259;
+    color: var(--main_dark);
 }
 
 .dark_footer {
@@ -213,4 +221,8 @@
 }
 .dark_main {
     background-color: var(--dark_greyBlue);
+}
+h1 {
+    color:white;
+    /* background-color: white; */
 }

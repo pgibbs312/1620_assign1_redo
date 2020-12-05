@@ -1,25 +1,16 @@
 
-const darkButton = document.querySelector(".dark_mode");
+const darkButton = document.querySelector(".dark-button");
 const new_note_button = document.querySelector(".new_note");
 const note_div = document.querySelector(".note");
-const cancle_button = document.querySelector(".cancle");
-const save_button = document.querySelector(".save");
-const text_box = document.querySelector("main-text");
+const cancle_button = document.querySelector(".cancle_button");
+const save_button = document.querySelector(".save_button");
+const text_box = document.querySelector(".main-text");
 const noteList = document.querySelector(".noteList");
+const title_header = document.querySelector("h2");
 
 let dm = false;
-let note_array = [{title:"Note1", body:"text filler"},
-                  {title:"Note2", body:"text filler"}];
-                  
-function errorAdd() {
-    const error = document.querySelector(".note_error");
-    error.classList.remove("note_exists");
-}
-
-function removeError() {
-    const error = document.querySelector(".note_error")
-    error.classList.add("note_exists")
-}
+let note_array = [{title:"note1", body:"text filler"},
+                  {title:"note2", body:"text filler"}]
 
 function title_check(new_title) {
     for (let note of note_array) {
@@ -56,7 +47,6 @@ function show_note(note_title) {
 
 cancle_button.addEventListener("click", () => {
     note_div.classList.add("hide_notes");
-    removeError()
 })
 
 new_note_button.addEventListener("click", () => {
@@ -65,7 +55,6 @@ new_note_button.addEventListener("click", () => {
     } else {
         text_box.value = '';
     }
-    removeError()
 })
 
 noteList.addEventListener("click", e => {
@@ -80,10 +69,9 @@ save_button.addEventListener("click", () => {
     if(text_box.value !== '') {
         let lines = text_box.value.split("\n");
         if (title_check(lines[0].toLowerCase()) === true) {
-            errorAdd()
             return null;
         }
-        removeError()
+        
 
         let note = {}
         create_note_button(lines[0]);
@@ -102,9 +90,9 @@ darkButton.addEventListener("click", () => {
     const header = document.querySelector(".header");
     const sidebar = document.querySelector(".sidebar");
     const main = document.querySelector(".main");
-    const txt = document.querySelector("text_box");
+    const txt = document.querySelector(".text_box");
     const footer = document.querySelector(".footer");
-    const buttons = document.querySelector(".button");
+    const buttons = document.querySelectorAll(".button");
 
     body.classList.toggle("dark-body");
     header.classList.toggle("dark_header");
@@ -128,6 +116,6 @@ darkButton.addEventListener("click", () => {
     } else if (dm === false) {
         dm = true;
     }
-    console.log(" dark button clicked");
+    console.log("dark button clicked");
 
 })
