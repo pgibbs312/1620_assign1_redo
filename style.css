@@ -77,7 +77,7 @@
     border-radius: 10px;
 }
 
-.topBB {
+.top_buttons {
     display: flex;
     justify-content: center;
     margin-top: 10px;
@@ -146,6 +146,15 @@
 .noteList .button {
     max-width: 10ch;
     word-wrap: break-word;
+}
+
+.note_error {
+    display: inline;
+    color: red;
+}
+
+.note_exists {
+    display: none;
 }
 
 /*------------Desktop View----------------*/

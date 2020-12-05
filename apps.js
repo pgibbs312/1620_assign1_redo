@@ -5,15 +5,25 @@ const note_div = document.querySelector(".note");
 const cancle_button = document.querySelector(".cancle");
 const save_button = document.querySelector(".save");
 const text_box = document.querySelector("main-text");
-const note_list = document.querySelector(".note_list");
+const noteList = document.querySelector(".noteList");
 
 let dm = false;
-let note_array = [{title:"note one", body:"text filler"},
-                  {title:"note two", body:"text filler"}];
+let note_array = [{title:"Note1", body:"text filler"},
+                  {title:"Note2", body:"text filler"}];
+                  
+function errorAdd() {
+    const error = document.querySelector(".note_error");
+    error.classList.remove("note_exists");
+}
+
+function removeError() {
+    const error = document.querySelector(".note_error")
+    error.classList.add("note_exists")
+}
 
 function title_check(new_title) {
-    for (let i of note_array) {
-        if (i.title == new_title) {
+    for (let note of note_array) {
+        if (note.title == new_title) {
             return true;
         }
     }
@@ -28,16 +38,16 @@ function create_note_button(title) {
     }
     new_button.innerHTML = title;
     new_list.appendChild(new_button);
-    const note_unordered = document.querySelector(".note_list");
+    const note_unordered = document.querySelector(".noteList");
     note_unordered.appendChild(new_list)
 }
 
 function show_note(note_title) {
     console.log("Note ran");
-    for (i of note_array) {
-        if(i.title == note_title) {
-            textarea.value = `${i.title}\n`;
-            textarea.value += i.body;
+    for (note of note_array) {
+        if(note.title == note_title) {
+            text_box.value = `${note.title}\n`;
+            text_box.value += note.body;
         } else {
 
         }
@@ -45,44 +55,44 @@ function show_note(note_title) {
 }
 
 cancle_button.addEventListener("click", () => {
-    note_div.classList.add("hide_note");
+    note_div.classList.add("hide_notes");
     removeError()
 })
 
 new_note_button.addEventListener("click", () => {
-    if(note_div.classList.contains("hide_note")) {
-        note_div.classList.remove("hide_note");
+    if (note_div.classList.contains("hide_notes")) {
+        note_div.classList.remove("hide_notes");
     } else {
-        textarea.value = '';
+        text_box.value = '';
     }
     removeError()
 })
 
-note_list.addEventListener("click", e => {
+noteList.addEventListener("click", e => {
     const title = (e.target.innerHTML).toLowerCase();
     show_note(title);
-    if (note_div.classList.contains("hide_note")) {
-        note_div.classList.remove("hide_note");
+    if (note_div.classList.contains("hide_notes")) {
+        note_div.classList.remove("hide_notes");
     }
 })
 
 save_button.addEventListener("click", () => {
     if(text_box.value !== '') {
         let lines = text_box.value.split("\n");
-        if (title_check(lines[0].toLowerCase()) == true) {
-            addError()
+        if (title_check(lines[0].toLowerCase()) === true) {
+            errorAdd()
             return null;
         }
         removeError()
 
         let note = {}
         create_note_button(lines[0]);
-        i.title = lines[0].toLowerCase();
-        i.body = '';
-        for (let inex = 1; index < lines.length; index++) {
-            i.body += `${lines[index]}\n`;
+        note.title = lines[0].toLowerCase();
+        note.body = '';
+        for (let index = 1; index < lines.length; index++) {
+            note.body += `${lines[index]}\n`;
         }
-        note_array.push(i);
+        note_array.push(note);
     console.log(note_array);
     }
 })
